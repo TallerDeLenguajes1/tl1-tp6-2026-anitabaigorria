@@ -27,3 +27,8 @@ En C#, `string` es un **tipo por referencia**, es decir que la variable no guard
   
   // Con @ 
   string ruta2 = @"C:\Facultad\TP6\archivo.txt";
+
+---
+
+> **NOTA SOBRE `EJERCICIO 4` - La seccion correspondiente al enunciado "Utilizando la calculadora creada anteriormente realizar las operaciones de dos números y mostrar por pantalla y mostrar en texto el resultado. Por ejemplo para la suma sería:  “la suma de “ num1 “ y de” num2 “ es igual a: ” resultado. Donde num1, num2 y resultados son los sumandos y el resultado de la operación respectivamente." se desarrolló en el ejercicio correspondiente a la calculadora**
+ 

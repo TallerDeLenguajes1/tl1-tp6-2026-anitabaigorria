@@ -19,9 +19,9 @@ do
     {
         if (numero > 0)
         {
-            for (int i = textoBuscado.Length-1; i >= 0 ; i--)
+            for (int h = textoBuscado.Length-1; h >= 0 ; h--)
             {
-                Console.Write($"{textoBuscado[i]}");            
+                Console.Write($"{textoBuscado[h]}");            
             }   
         } else
         {
@@ -306,3 +306,132 @@ while (double.TryParse(ingreso2, out num2) == false || num2 <= 0)
 
 Console.WriteLine($"El mayor valor entre {num1} y {num2} es {Math.Max(num1, num2)} y el menor es {Math.Min(num1, num2)}");
 
+// EJERCICIO 4
+string cadenaIngresada, ingresada2, concatenar;
+
+Console.WriteLine("--- EXTRAER LONGITUD ---");
+Console.WriteLine("Ingrese una cadena de texto: ");
+cadenaIngresada = Console.ReadLine();
+
+Console.WriteLine($"-Longitud = {cadenaIngresada.Length}");
+
+Console.WriteLine("--- CONCATENAR 2 CADENAS ---");
+Console.WriteLine("Ingrese una segunda cadena de texto: ");
+ingresada2 = Console.ReadLine();
+
+concatenar = string.Concat(cadenaIngresada,ingresada2);
+Console.WriteLine($"Cadena concatenada: {concatenar}");
+
+Console.WriteLine("--- EXTRAER SUBCADENA ---");
+Console.Write("Ingrese una palabra o frase: ");
+string texto = Console.ReadLine();
+
+string subcadena = cadenaIngresada.Substring(2);    
+Console.WriteLine($"La subcadena extraída (desde pos 1, 4 caracteres) es: {subcadena}");
+
+Console.WriteLine("--- RECORRER CADENA ---");
+int i = 0;
+foreach (var caracter in cadenaIngresada)
+{
+    Console.Write($"[{i}] {caracter} ");
+    i++;
+}
+ 
+Console.WriteLine("--- BUSCAR OCURRENCIA ---");
+Console.Write("Ingrese la palabra que desea buscar: ");
+string palabra = Console.ReadLine();
+
+if (cadenaIngresada.Contains(palabra))
+{
+    Console.WriteLine($"La palabra '{palabra}' APARECE en la cadena.");
+}
+else
+{
+    Console.WriteLine($"La palabra '{palabra}' NO fue encontrada.");
+}
+
+Console.WriteLine("--- CONVERTIR A MAYUSCULA ---");
+Console.WriteLine($"{cadenaIngresada.ToUpper()}'");
+
+Console.WriteLine("--- CONVERTIR A MINUSCULA ---");
+Console.WriteLine($"{cadenaIngresada.ToLower()}'");
+
+Console.WriteLine("--- SEPARAR CADENA ---");
+Console.Write("Ingrese 3 palabras separadas por un guion (-): ");
+palabra = Console.ReadLine();
+
+string[] separar = palabra.Split('-');
+
+int j = 0;
+foreach (var elemento in separar)
+{
+    Console.WriteLine($"Palabra [{j}]: {elemento}");
+    j++;
+}
+
+Console.WriteLine("--- CALCULADORA DE CADENAS ---");
+Console.Write("Ingrese la ecuación (ej: 582 + 2): ");
+string ecuacion = Console.ReadLine();
+
+
+// Evaluamos qué operador tiene la ecuación
+if (ecuacion.Contains('+'))
+{
+    string[] partes = ecuacion.Split('+');
+
+    if (double.TryParse(partes[0].Trim(), out num1) && 
+        double.TryParse(partes[1].Trim(), out num2))
+    {
+        Console.WriteLine($"El resultado de la suma es: {num1 + num2}");
+    }
+    else
+    {
+        Console.WriteLine("Error: Los valores ingresados no son validos.");
+    }
+}
+else if (ecuacion.Contains('-'))
+{
+    string[] partes = ecuacion.Split('-');
+
+    if (double.TryParse(partes[0].Trim(), out num1) && 
+        double.TryParse(partes[1].Trim(), out num2))
+    {
+        Console.WriteLine($"El resultado de la resta es: {num1 - num2}");
+    }
+    else
+    {
+        Console.WriteLine("Error: Los valores ingresados no son validos.");
+    }
+}
+else if (ecuacion.Contains('*'))
+{
+    string[] partes = ecuacion.Split('*');
+
+    if (double.TryParse(partes[0].Trim(), out num1) && 
+        double.TryParse(partes[1].Trim(), out num2))
+    {
+        Console.WriteLine($"El resultado de la multiplicacion es: {num1 * num2}");
+    }
+    else
+    {
+        Console.WriteLine("Error: Los valores ingresados no son validos.");
+    }
+}
+else if (ecuacion.Contains('/'))
+{
+    string[] partes = ecuacion.Split('/');
+
+    if (double.TryParse(partes[0].Trim(), out num1) && 
+        double.TryParse(partes[1].Trim(), out num2))
+    {
+        Console.WriteLine($"El resultado de la division es: {num1 / num2}");
+    }
+    else
+    {
+        Console.WriteLine("Error: Los valores ingresados no son validos.");
+    }
+}
+else
+{
+    Console.WriteLine("Error: Operación no reconocida. Ingrese +, -, * o /.");
+}
